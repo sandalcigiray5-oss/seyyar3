@@ -8,7 +8,7 @@
 
   <style>
     *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    body{background:linear-gradient(180deg,#050a1f,#020617);color:#fff}
+    body{background:linear-gradient(180deg,#050a1f,#020617);color:#fff;padding-bottom: 80px;}
     a{text-decoration:none;color:inherit}
 
     .container{padding:16px}
@@ -30,12 +30,36 @@
 
     .phone-big{font-size:24px;font-weight:900;color:#00d1ff;margin-bottom:14px;display:block}
 
-    .search{display:flex;border-radius:14px;overflow:hidden;margin-bottom:14px;box-shadow:0 0 0 1px rgba(255,255,255,.08)}
-    .search input{flex:1;border:none;padding:14px;font-size:16px}
-    .search button{border:none;background:#00d1ff;color:#000;font-weight:800;padding:0 16px}
+    /* --- TAKİP SİSTEMİ BUTON STİLLERİ --- */
+    .konum-box {
+        background: rgba(0, 209, 255, 0.08);
+        border: 1px dashed rgba(0, 209, 255, 0.4);
+        padding: 20px;
+        border-radius: 20px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    .konum-btn {
+        background: linear-gradient(135deg, #00d1ff, #00ffff);
+        color: #000;
+        border: none;
+        padding: 16px 20px;
+        border-radius: 14px;
+        font-weight: 800;
+        font-size: 16px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 10px;
+        box-shadow: 0 4px 15px rgba(0, 209, 255, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+    .konum-btn:active { transform: scale(0.96); }
+    /* ---------------------------------- */
 
     .trust{display:flex;justify-content:space-around;margin:18px 0;font-size:13px;opacity:.9}
-
     .trust div{background:rgba(255,255,255,.05);padding:10px 12px;border-radius:12px}
 
     .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
@@ -51,8 +75,7 @@
 
     .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
     .gallery img{width:100%;height:120px;object-fit:cover;border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,.35)}
-    .gallery div{height:130px;border-radius:16px;border:2px dashed rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-size:13px;opacity:.6}
-
+    
     footer{padding:28px 0;font-size:13px;opacity:.9;text-align:center}
 
     .fixed-bar{position:fixed;bottom:0;left:0;width:100%;display:grid;grid-template-columns:1fr 1fr;z-index:999}
@@ -68,7 +91,7 @@
 <header>
   <div class="container topbar">
     <div class="logo">İstanbul <span>Mobil Lastikçi</span></div>
-    <a class="call-btn" href="tel:+905470343413">0 (547) 034 34 13</a>
+    <a class="call-btn" href="tel:+905470343413">Tıkla Ara</a>
   </div>
 </header>
 
@@ -76,6 +99,12 @@
 
   <h1>7/24 <span>Acil Mobil Lastikçi</span><br>İstanbul Genelinde</h1>
   <span class="phone-big">📞 0 (547) 034 34 13</span>
+
+  <div class="konum-box">
+    <p>📍 <strong>Hızlı Servis İçin:</strong> Size en yakın ekibi 15 dakikada yönlendirebilmemiz için lütfen konumu onaylayın.</p>
+    <button class="konum-btn" onclick="konumAl()">📍 Konum Gönder ve Yardım Çağır</button>
+  </div>
+
   <p>Patlak lastik, yolda kalma, acil lastik değişimi. Tek tıkla arayın, en yakın mobil ekip 15–30 dakika içinde gelsin.</p>
 
   <div class="trust">
@@ -96,11 +125,6 @@
     <img src="images/mobil-servis.jpg" alt="Mobil Lastik Servisi" />
     <img src="images/yol-yardim.jpg" alt="Acil Lastik Yol Yardım" />
   </div>
-    <div>Lastik Değişimi</div>
-    <div>Mobil Servis</div>
-    <div>Yol Yardım</div>
-  </div>
-
 </section>
 
 <section class="container">
@@ -117,21 +141,4 @@
   <h2 style="margin-bottom:14px">Neden Bizi Seçmelisiniz?</h2>
   <div class="cards">
     <div class="card"><h3>⚡ Hızlı Ulaşım</h3><p>İstanbul genelinde 15–30 dakika ortalama varış.</p></div>
-    <div class="card"><h3>💰 Uygun Fiyat</h3><p>Şeffaf, sürprizsiz ve ekonomik fiyat politikası.</p></div>
-    <div class="card"><h3>🛠 Profesyonel Ekip</h3><p>Tam donanımlı araçlar ve deneyimli ustalar.</p></div>
-  </div>
-</section>
-
-<footer class="container">
-  <p><strong>İstanbul Mobil Lastikçi</strong></p>
-  <p>7/24 Seyyar Lastikçi & Acil Lastik Yol Yardım</p>
-  <p style="font-size:16px;font-weight:800;color:#00d1ff">📞 0 (547) 034 34 13</p>
-</footer>
-
-<div class="fixed-bar">
-  <a class="fixed-call" href="tel:+905470343413">📞 Hemen Ara</a>
-  <a class="fixed-wp" target="_blank" href="https://wa.me/905470343413">💬 WhatsApp</a>
-</div>
-
-</body>
-</html>
+    <div class="card"><h3>💰 Uygun Fiyat</h3><p>Şeffaf, sür
